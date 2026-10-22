@@ -94,7 +94,7 @@
   .event-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;cursor:pointer;
     box-shadow:0 1px 2px rgba(0,0,0,.12);transition:transform .15s}
   .event-card:active{transform:scale(.98)}
-  .event-card img{width:100%;height:100%;object-fit:cover;display:block}
+  .event-card img,.event-card video{width:100%;height:100%;object-fit:cover;display:block}
   .event-card .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 52%,rgba(0,0,0,.5))}
   .event-card .pill{
     position:absolute;top:10px;left:10px;background:rgba(24,26,25,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -134,7 +134,7 @@
   .grabber{width:38px;height:5px;border-radius:3px;background:#D1D1D6}
   .es-scroll{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;padding:56px 16px 110px}
   .es-scroll::-webkit-scrollbar{display:none}
-  .es-media{width:100%;border-radius:16px;display:block;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+  .es-media{width:100%;border-radius:16px;display:block;background:#000;box-shadow:0 1px 3px rgba(0,0,0,.14)}
   .es-name{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:16px 2px 0}
   .es-badge{display:inline-block;margin:9px 2px 0;background:#E7F4EC;color:#2E7A48;font-size:11px;font-weight:700;
     letter-spacing:.06em;padding:5px 10px;border-radius:8px}
@@ -152,7 +152,7 @@
   .assets{display:flex;justify-content:center;align-items:center;gap:26px;flex-wrap:wrap;margin-top:70px;padding:0 12px}
   .asset{display:flex;flex-direction:column;align-items:center;gap:11px}
   .asset .tile{border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08);background:#000}
-  .asset img{display:block;height:225px;width:auto}
+  .asset img,.asset video{display:block;height:225px;width:auto;background:#000}
   .asset .cap{font-size:12.5px;color:#93a09b}
   .asset .cap b{color:#dfe8e3;font-weight:600}
   footer{margin-top:46px;text-align:center;color:#7f8b86;font-size:12.5px;line-height:1.7}
@@ -167,7 +167,7 @@
   <header class="top">
     <div class="kicker"><a href="https://jira.int.agrd.dev/browse/AG-60517" target="_blank">AG-60517</a><span>App Store In-App Event</span></div>
     <h1>AdGuard <em>v5 is here</em> — превью в App Store</h1>
-    <p class="sub">Реальный аналог App Store на данных живой страницы <b>AdGuard Ad Blocker for Safari</b>: карточка события на странице приложения и страница события. Карточка и страница события проигрывают <b>видео-луп 10s</b>, ниже — все ассеты рядом: статика и анимация. Тап по карточке открывает событие, как в настоящем App Store.</p>
+    <p class="sub">Реальный аналог App Store на данных живой страницы <b>AdGuard Ad Blocker for Safari</b>: карточка события на странице приложения и страница события. Карточка и страница события проигрывают <b>MP4-видео 10s · 30fps</b>, ниже — все ассеты рядом: статика и анимация. Тап по карточке открывает событие, как в настоящем App Store.</p>
     <div class="hint">👆 тап по карточке события открывает страницу события · повторный тап по «шторке» закрывает</div>
   </header>
 
@@ -220,7 +220,7 @@
               <div class="section">
                 <div class="sec-title">In-App Events</div>
                 <div class="event-card" id="eventCard" title="Открыть событие">
-                  <img src="assets/anim-card.svg?v=2" alt="AdGuard v5 is here — event card (animated)">
+                  <video src="assets/event-card-loop.mp4?v=1" autoplay muted loop playsinline poster="assets/embed_card.png"></video>
                   <div class="shade"></div>
                   <div class="ename">AdGuard v5 is here</div>
                 </div>
@@ -265,7 +265,7 @@
           <div class="event-sheet" id="sheetA">
             <div class="grab-zone" id="grabA"><div class="grabber"></div></div>
             <div class="es-scroll">
-              <img class="es-media" src="assets/anim-details.svg?v=2" alt="AdGuard v5 is here — event details (animated)">
+              <video class="es-media" src="assets/event-details-loop.mp4?v=1" autoplay muted loop playsinline poster="assets/embed_details.png"></video>
               <div class="es-name">AdGuard v5 is here</div>
               <div class="es-badge">MAJOR UPDATE</div>
               <div class="es-desc">Cleaner Safari browsing, stronger privacy, and advanced DNS protection — now in the redesigned AdGuard v5 for iOS.</div>
@@ -299,7 +299,7 @@
           <div class="event-sheet static">
             <div class="grab-zone"><div class="grabber"></div></div>
             <div class="es-scroll">
-              <img class="es-media" src="assets/anim-details.svg?v=2" alt="AdGuard v5 is here — event details (animated)">
+              <video class="es-media" src="assets/event-details-loop.mp4?v=1" autoplay muted loop playsinline poster="assets/embed_details.png"></video>
               <div class="es-name">AdGuard v5 is here</div>
               <div class="es-badge">MAJOR UPDATE</div>
               <div class="es-desc">Cleaner Safari browsing, stronger privacy, and advanced DNS protection — now in the redesigned AdGuard v5 for iOS.</div>
@@ -328,9 +328,9 @@
 
   <section class="assets">
     <div class="asset"><div class="tile"><img src="assets/embed_card.png" alt="Event card static"></div><div class="cap"><b>Card</b> · статика</div></div>
-    <div class="asset"><div class="tile"><img src="assets/anim-card.svg?v=2" alt="Event card animated"></div><div class="cap"><b>Card</b> · анимация 10s</div></div>
+    <div class="asset"><div class="tile"><video src="assets/event-card-loop.mp4?v=1" autoplay muted loop playsinline poster="assets/embed_card.png"></video></div><div class="cap"><b>Card</b> · видео 10s</div></div>
     <div class="asset"><div class="tile"><img src="assets/embed_details.png" alt="Event details static"></div><div class="cap"><b>Details</b> · статика</div></div>
-    <div class="asset"><div class="tile"><img src="assets/anim-details.svg?v=2" alt="Event details animated"></div><div class="cap"><b>Details</b> · анимация 10s</div></div>
+    <div class="asset"><div class="tile"><video src="assets/event-details-loop.mp4?v=1" autoplay muted loop playsinline poster="assets/embed_details.png"></video></div><div class="cap"><b>Details</b> · видео 10s</div></div>
   </section>
 
   <footer>
