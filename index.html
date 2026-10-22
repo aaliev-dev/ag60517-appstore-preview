@@ -149,6 +149,12 @@
   .bb-open{margin-left:auto;background:var(--blue);color:#fff;font-size:16px;font-weight:600;
     letter-spacing:.01em;padding:12px 0;width:128px;text-align:center;border-radius:23px}
 
+  .assets{display:flex;justify-content:center;align-items:center;gap:26px;flex-wrap:wrap;margin-top:70px;padding:0 12px}
+  .asset{display:flex;flex-direction:column;align-items:center;gap:11px}
+  .asset .tile{border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08);background:#000}
+  .asset img{display:block;height:225px;width:auto}
+  .asset .cap{font-size:12.5px;color:#93a09b}
+  .asset .cap b{color:#dfe8e3;font-weight:600}
   footer{margin-top:46px;text-align:center;color:#7f8b86;font-size:12.5px;line-height:1.7}
   footer a{color:#67B279;text-decoration:none}
   footer a:hover{text-decoration:underline}
@@ -161,7 +167,7 @@
   <header class="top">
     <div class="kicker"><a href="https://jira.int.agrd.dev/browse/AG-60517" target="_blank">AG-60517</a><span>App Store In-App Event</span></div>
     <h1>AdGuard <em>v5 is here</em> — превью в App Store</h1>
-    <p class="sub">Реальный аналог App Store на данных живой страницы <b>AdGuard Ad Blocker for Safari</b>: карточка события на странице приложения и страница события. Слева можно <b>тапнуть по карточке</b> — событие откроется, как в настоящем App Store.</p>
+    <p class="sub">Реальный аналог App Store на данных живой страницы <b>AdGuard Ad Blocker for Safari</b>: карточка события на странице приложения и страница события. Карточка и страница события проигрывают <b>видео-луп 10s</b>, ниже — все ассеты рядом: статика и анимация. Тап по карточке открывает событие, как в настоящем App Store.</p>
     <div class="hint">👆 тап по карточке события открывает страницу события · повторный тап по «шторке» закрывает</div>
   </header>
 
@@ -214,7 +220,7 @@
               <div class="section">
                 <div class="sec-title">In-App Events</div>
                 <div class="event-card" id="eventCard" title="Открыть событие">
-                  <img src="assets/embed_card.png" alt="AdGuard v5 is here — event card">
+                  <img src="assets/anim-card.svg?v=2" alt="AdGuard v5 is here — event card (animated)">
                   <div class="shade"></div>
                   <div class="ename">AdGuard v5 is here</div>
                 </div>
@@ -259,7 +265,7 @@
           <div class="event-sheet" id="sheetA">
             <div class="grab-zone" id="grabA"><div class="grabber"></div></div>
             <div class="es-scroll">
-              <img class="es-media" src="assets/embed_details.png" alt="AdGuard v5 is here — event details">
+              <img class="es-media" src="assets/anim-details.svg?v=2" alt="AdGuard v5 is here — event details (animated)">
               <div class="es-name">AdGuard v5 is here</div>
               <div class="es-badge">MAJOR UPDATE</div>
               <div class="es-desc">Cleaner Safari browsing, stronger privacy, and advanced DNS protection — now in the redesigned AdGuard v5 for iOS.</div>
@@ -293,7 +299,7 @@
           <div class="event-sheet static">
             <div class="grab-zone"><div class="grabber"></div></div>
             <div class="es-scroll">
-              <img class="es-media" src="assets/embed_details.png" alt="AdGuard v5 is here — event details">
+              <img class="es-media" src="assets/anim-details.svg?v=2" alt="AdGuard v5 is here — event details (animated)">
               <div class="es-name">AdGuard v5 is here</div>
               <div class="es-badge">MAJOR UPDATE</div>
               <div class="es-desc">Cleaner Safari browsing, stronger privacy, and advanced DNS protection — now in the redesigned AdGuard v5 for iOS.</div>
@@ -319,6 +325,13 @@
     </section>
 
   </main>
+
+  <section class="assets">
+    <div class="asset"><div class="tile"><img src="assets/embed_card.png" alt="Event card static"></div><div class="cap"><b>Card</b> · статика</div></div>
+    <div class="asset"><div class="tile"><img src="assets/anim-card.svg?v=2" alt="Event card animated"></div><div class="cap"><b>Card</b> · анимация 10s</div></div>
+    <div class="asset"><div class="tile"><img src="assets/embed_details.png" alt="Event details static"></div><div class="cap"><b>Details</b> · статика</div></div>
+    <div class="asset"><div class="tile"><img src="assets/anim-details.svg?v=2" alt="Event details animated"></div><div class="cap"><b>Details</b> · анимация 10s</div></div>
+  </section>
 
   <footer>
     Собрано по реальным данным App Store (apps.apple.com, US): название, рейтинг 4.3 · 20K, категория, тексты описания.<br>
